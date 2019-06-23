@@ -264,7 +264,7 @@
         "isTarget" : false,
         "left" : 0,
         "locked" : false,
-        "name" : "Eport",
+        "name" : "export",
         "navigationTarget" : null,
         "navigationTransition" : "push",
         "navigationTransitionBackdropColor" : "rgba(4,4,15,.4)",
