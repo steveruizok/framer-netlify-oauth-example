@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <script>
+            if (localStorage.getItem("debug") === "active") {
+                document.write('<script src="http:\/\/localhost:8097"><\/script>')
+            }
+        </script>
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+
+        <script src="build/react.development.js"></script>
+        <script src="build/react-dom.development.js"></script>
+        <script src="build/framer.js"></script>
+
+        <link href="build/Draft.css" rel="stylesheet" />
+        <link href="build/style.css" rel="stylesheet" />
+
+        <!-- Workaround for a WebKit bug: loading via URL from the stylesheet is denied if this file is loaded via file:/// -->
+        <style>
+            @font-face {
+                font-family: "Roboto Mono";
+                font-style: normal;
+                font-weight: 400;
+                src: local("Roboto Mono"), local("RobotoMono-Regular"),
+                    url("fonts/RobotoMono-Regular.ttf") format("truetype");
+            }
+            @font-face {
+                font-family: "Input Mono";
+                font-style: normal;
+                font-weight: 400;
+                src: local("Input Mono"), url("fonts/QbHJVUjy6YgY.app.ttf") format("truetype");
+            }
+
+            .framerInternalUI-componentPlaceholder {
+                color: rgb(136, 85, 255);
+                background-color: rgba(163, 113, 255);
+                border-color: rgba(175, 125, 255);
+            }
+
+            .framerInternalUI-errorPlaceholder {
+                color: rgb(255, 0, 85);
+                background-color: rgb(242, 219, 224);
+                border-color: rgb(246, 193, 204);
+                border-style: solid;
+            }
+        </style>
+        <style>
+            * {
+                -webkit-font-smoothing: antialiased;
+            }
+        </style>
+    </head>
+
+    <body>
+        <main></main>
+        <script src="build/standalone.js"></script>
+        
+        <script id="build_index_js">
+        (function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory(require("framer"));
+	else if(typeof define === 'function' && define.amd)
+		define(["framer"], factory);
+	else {
+		var a = typeof exports === 'object' ? factory(require("framer")) : factory(root["Framer"]);
+		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
+	}
+})(window, function(__WEBPACK_EXTERNAL_MODULE_framer__) {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		try { modules[moduleId].call(module.exports, module, module.exports, __webpack_require__); } catch (error) { module.exports = { error } }
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// asset url
+/******/ 	var __module_i = eval("typeof module !== 'undefined' ? module.i : ''");
+/******/ 	var __framer_package = (/(node_modules[/].*)[/](build|dist).index.js/.exec(__module_i) || [])[1]
+/******/ 	function __asset_url__(src) { return __WEBPACK_EXTERNAL_MODULE_framer__.serverURL(__framer_package, src) };
+/******/ 	installedModules['framer/resource'] = { i: 'framer/resource', l: true, exports: { url: __asset_url__ } };
+/******/
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./package.js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./code sync recursive \\.(t|j)s(x?)|\\.css$":
+/*!***************************************!*\
+  !*** ./code sync \.(t|j)s(x?)|\.css$ ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./App.tsx": "./code/App.tsx",
+	"./canvas.tsx": "./code/canvas.tsx"
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	return __webpack_require__(id);
+}
+function webpackContextResolve(req) {
+	if(!__webpack_require__.o(map, req)) {
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return map[req];
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = "./code sync recursive \\.(t|j)s(x?)|\\.css$";
+
+/***/ }),
+
+/***/ "./code/App.tsx":
+/*!**********************!*\
+  !*** ./code/App.tsx ***!
+  \**********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+//# framerSourceMap=eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQXBwLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vY29kZS9BcHAudHN4Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBR0EsbUVBQWlFO0FBRWpFLE1BQU0sYUFBYSxHQUFHLElBQUksZ0NBQWEsQ0FBQyxFQUFFLENBQUMsQ0FBQTtBQUU5QixRQUFBLE1BQU0sR0FBYSxHQUFHLEVBQUU7O0lBQ2pDLE1BQU0sWUFBWSxHQUFHLEdBQUcsRUFBRTs7UUFDdEIsYUFBYSxDQUFDLFlBQVksQ0FDdEIsRUFBRSxRQUFRLEVBQUUsUUFBUSxFQUFFLEtBQUssRUFBRSxNQUFNLEVBQUUsRUFDckMsVUFBUyxHQUFHLEVBQUUsSUFBSTs7WUFDZCxJQUFJLEdBQUcsRUFBRTtnQkFDTCxPQUFPLENBQUMsR0FBRyxDQUFDLE9BQU8sQ0FBQyxDQUFBO2FBQ3ZCO2lCQUFNO2dCQUNILE9BQU8sQ0FBQyxHQUFHLENBQ1AsMkNBQTJDLEdBQUcsSUFBSSxDQUFDLEtBQUssQ0FDM0QsQ0FBQTthQUNKO1NBQ0osQ0FDSixDQUFBO0tBQ0osQ0FBQTtJQUVELE9BQU87UUFDSCxLQUFLLEVBQUUsWUFBWTtLQUN0QixDQUFBO0NBQ0osQ0FBQTtBQUNEIn0=
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const netlify_auth_providers_1 = __webpack_require__(/*! netlify-auth-providers */ "./node_modules/netlify-auth-providers/lib/netlify.js");
+const authenticator = new netlify_auth_providers_1.default({});
+exports.Button = () => {
+    window["__checkBudget__"]();
+    const authenticate = () => {
+        window["__checkBudget__"]();
+        authenticator.authenticate({ provider: "github", scope: "user" }, function (err, data) {
+            window["__checkBudget__"]();
+            if (err) {
+                console.log("error");
+            }
+            else {
+                console.log("Authenticated with GitHub. Access Token: " + data.token);
+            }
+        });
+    };
+    return {
+        onTap: authenticate,
+    };
+};
+exports.__info__ = [{ name: "Button", type: "override" }];
+
+
+/***/ }),
+
+/***/ "./code/canvas.tsx":
+/*!*************************!*\
+  !*** ./code/canvas.tsx ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+// WARNING: this file is auto generated, any changes will be lost
+const framer_1 = __webpack_require__(/*! framer */ "framer");
+const canvas = framer_1.CanvasStore.shared({"children":[]});
+
+
+/***/ }),
+
+/***/ "./node_modules/netlify-auth-providers/lib/netlify.js":
+/*!************************************************************!*\
+  !*** ./node_modules/netlify-auth-providers/lib/netlify.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else { var mod; }
+})(this, function (exports) {
+  "use strict";
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+
+  function _classCallCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+      throw new TypeError("Cannot call a class as a function");
+    }
+  }
+
+  var _createClass = function () {
+    function defineProperties(target, props) {
+      for (var i = 0; i < props.length; i++) {
+        var descriptor = props[i];
+        descriptor.enumerable = descriptor.enumerable || false;
+        descriptor.configurable = true;
+        if ("value" in descriptor) descriptor.writable = true;
+        Object.defineProperty(target, descriptor.key, descriptor);
+      }
+    }
+
+    return function (Constructor, protoProps, staticProps) {
+      if (protoProps) defineProperties(Constructor.prototype, protoProps);
+      if (staticProps) defineProperties(Constructor, staticProps);
+      return Constructor;
+    };
+  }();
+
+  var NETLIFY_API = "https://api.netlify.com";
+
+  var NetlifyError = function () {
+    function NetlifyError(err) {
+      _classCallCheck(this, NetlifyError);
+
+      this.err = err;
+    }
+
+    _createClass(NetlifyError, [{
+      key: "toString",
+      value: function toString() {
+        return this.err && this.err.message;
+      }
+    }]);
+
+    return NetlifyError;
+  }();
+
+  var PROVIDERS = {
+    github: {
+      width: 960,
+      height: 600
+    },
+    gitlab: {
+      width: 960,
+      height: 600
+    },
+    bitbucket: {
+      width: 960,
+      height: 500
+    },
+    email: {
+      width: 500,
+      height: 400
+    }
+  };
+
+  var Authenticator = function () {
+    function Authenticator(config) {
+      _classCallCheck(this, Authenticator);
+
+      this.site_id = config.site_id;
+      this.base_url = config.base_url || NETLIFY_API;
+    }
+
+    _createClass(Authenticator, [{
+      key: "handshakeCallback",
+      value: function handshakeCallback(options, cb) {
+        var _this = this;
+
+        var fn = function fn(e) {
+          if (e.data === "authorizing:" + options.provider && e.origin === _this.base_url) {
+            window.removeEventListener("message", fn, false);
+            window.addEventListener("message", _this.authorizeCallback(options, cb), false);
+            return _this.authWindow.postMessage(e.data, e.origin);
+          }
+        };
+        return fn;
+      }
+    }, {
+      key: "authorizeCallback",
+      value: function authorizeCallback(options, cb) {
+        var _this2 = this;
+
+        var fn = function fn(e) {
+          var data, err;
+          if (e.origin !== _this2.base_url) {
+            return;
+          }
+          if (e.data.indexOf("authorization:" + options.provider + ":success:") === 0) {
+            data = JSON.parse(e.data.match(new RegExp("^authorization:" + options.provider + ":success:(.+)$"))[1]);
+            window.removeEventListener("message", fn, false);
+            _this2.authWindow.close();
+            cb(null, data);
+          }
+          if (e.data.indexOf("authorization:" + options.provider + ":error:") === 0) {
+            err = JSON.parse(e.data.match(new RegExp("^authorization:" + options.provider + ":error:(.+)$"))[1]);
+            window.removeEventListener("message", fn, false);
+            _this2.authWindow.close();
+            cb(new NetlifyError(err));
+          }
+        };
+        return fn;
+      }
+    }, {
+      key: "getSiteID",
+      value: function getSiteID() {
+        if (this.site_id) {
+          return this.site_id;
+        }
+        var host = document.location.host.split(":")[0];
+        return host === "localhost" ? null : host;
+      }
+    }, {
+      key: "authenticate",
+      value: function authenticate(options, cb) {
+        var left,
+            top,
+            url,
+            siteID = this.getSiteID(),
+            provider = options.provider;
+        if (!provider) {
+          return cb(new NetlifyError({
+            message: "You must specify a provider when calling netlify.authenticate"
+          }));
+        }
+        if (!siteID) {
+          return cb(new NetlifyError({
+            message: "You must set a site_id with netlify.configure({site_id: \"your-site-id\"}) to make authentication work from localhost"
+          }));
+        }
+
+        var conf = PROVIDERS[provider] || PROVIDERS.github;
+        left = screen.width / 2 - conf.width / 2;
+        top = screen.height / 2 - conf.height / 2;
+        window.addEventListener("message", this.handshakeCallback(options, cb), false);
+        url = this.base_url + "/auth?provider=" + options.provider + "&site_id=" + siteID;
+        if (options.scope) {
+          url += "&scope=" + options.scope;
+        }
+        if (options.login === true) {
+          url += "&login=true";
+        }
+        if (options.beta_invite) {
+          url += "&beta_invite=" + options.beta_invite;
+        }
+        if (options.invite_code) {
+          url += "&invite_code=" + options.invite_code;
+        }
+        this.authWindow = window.open(url, "Netlify Authorization", "toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, " + ("width=" + conf.width + ", height=" + conf.height + ", top=" + top + ", left=" + left + ");"));
+        this.authWindow.focus();
+      }
+    }]);
+
+    return Authenticator;
+  }();
+
+  exports.default = Authenticator;
+});
+
+/***/ }),
+
+/***/ "./package.js":
+/*!********************!*\
+  !*** ./package.js ***!
+  \********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// The template for the dynamic webpack entry. Be aware of the variables
+
+const packageJson = __webpack_require__(/*! ./package.json */ "./package.json")
+
+const package = {
+    packageJson,
+    sourceModules: {},
+    dependencies: {},
+}
+
+// This is a special webpack thing that watches the whole directory
+// https://github.com/webpack/docs/wiki/context
+const ctx = __webpack_require__("./code sync recursive \\.(t|j)s(x?)|\\.css$")
+
+ctx.keys().forEach(key => {
+    package.sourceModules[key] = () => ctx(key)
+})
+
+// The packages are passed in through a template
+const packages = {}
+
+                packages["framer"] = () => {
+                    var package = {}
+                    try {
+                        package = __webpack_require__(/*! framer */ "framer")
+                    } catch (e) {
+                        console.log(e)
+                    }
+                    package.__framer__ = package.__framer__ || {}
+                    package.__framer__.packageJson = {"name":"framer","version":"1.0.11","main":"build/framer.js","author":"Framer","license":"MIT","scripts":{"coverage":"jest --coverage","test":"jest","watch":"jest --watch"},"devDependencies":{"@microsoft/api-extractor":"^7.1.5","@testing-library/react":"^8.0.1","@types/chalk":"^2.2.0","@types/draft-js":"0.10.19","@types/enzyme":"^3.1.10","@types/enzyme-adapter-react-16":"^1.0.3","@types/hsluv":"https://github.com/framer/typed_hsluv#bump","@types/jest":"^23.0.0","@types/jest-diff":"^20.0.0","@types/jest-matcher-utils":"^21.0.1","@types/node":"^10.12.9","@types/react":"16.8.4","@types/react-dom":"^16.8","cache-loader":"^1.2.2","chalk":"^2.4.1","convert-tsconfig-paths-to-webpack-aliases":"^0.9.2","css.escape":"^1.5.1","draft-js":"0.10.4","enzyme":"^3.9.0","enzyme-adapter-react-16":"^1.9.1","eventemitter3":"^3.1.0","fork-ts-checker-webpack-plugin":"^0.4.1","framer-motion":"^0.19.1","hoist-non-react-statics":"^2.5.0","hsluv":"^0.0.3","immutable":"^3.8.2","jest":"^23.1.0","jest-diff":"^23.6.0","jest-dom":"^3.1.3","jest-junit":"^5.2.0","modclean":"^3.0.0-beta.1","progress-bar-webpack-plugin":"^1.11.0","raf":"^3.4.0","react":"^16.8","react-dev-utils":"^5.0.1","react-dom":"^16.8","resize-observer-polyfill":"^1.5.1","semver":"^5.6.0","style-value-types":"^3.1.4","ts-jest":"^23.10.5","ts-loader":"^4.1.0","tslint":"^5.12.1","tslint-react-hooks":"^1.1.0","typescript":"3.3","watch":"^1.0.2","webpack":"^4.4.1","webpack-cli":"^3.1.2","webpack-dev-server":"^3.1.10","xcssmatrix":"^0.2.2"},"peerDependencies":{"react":"^16.8.2","react-dom":"^16.8.2"},"tsdoc":{"tsdocFlavor":"AEDoc"},"framer":{"components":[{"name":"Scroll","children":true,"properties":[{"key":"direction","title":"Direction","kind":"enum","options":["horizontal","vertical","both"]}]},{"name":"Page"},{"name":"Stack"},{"name":"FramerAppleWatch38","type":"device"},{"name":"FramerAppleWatch42","type":"device"},{"name":"FramerSonySmartWatch","type":"device"},{"name":"FramerAppleIPhoneSE","type":"device"},{"name":"FramerAppleIPhone8","type":"device"},{"name":"FramerAppleIPhone8Plus","type":"device"},{"name":"FramerAppleIPhoneXS","type":"device"},{"name":"FramerAppleIPhoneXR","type":"device"},{"name":"FramerAppleIPhoneXSMax","type":"device"},{"name":"FramerGooglePixel2","type":"device"},{"name":"FramerGooglePixel2XL","type":"device"},{"name":"FramerGooglePixel3","type":"device"},{"name":"FramerGooglePixel3XL","type":"device"},{"name":"FramerSamsungNote5","type":"device"},{"name":"FramerSamsungGalaxyS9","type":"device"},{"name":"FramerAppleIPadAir","type":"device"},{"name":"FramerAppleIPadMini","type":"device"},{"name":"FramerAppleIPadPro","type":"device"},{"name":"FramerGoogleNexusTablet","type":"device"},{"name":"FramerMicrosoftSurfacePro3","type":"device"},{"name":"FramerMicrosoftSurfacePro4","type":"device"},{"name":"FramerAppleIMac","type":"device"},{"name":"FramerAppleThunderboltDisplay","type":"device"},{"name":"FramerAppleMacBook","type":"device"},{"name":"FramerAppleMacBookAir","type":"device"},{"name":"FramerAppleMacBookPro","type":"device"},{"name":"FramerDellXPS","type":"device"},{"name":"FramerMicrosoftSurfaceBook","type":"device"},{"name":"FramerSonyW850C","type":"device"},{"name":"FramerStoreArtwork","type":"device"},{"name":"FramerStoreIcon","type":"device"}]}}
+                    return package
+                }
+
+package.dependencies = packages
+
+exports.__framer__ = package
+
+
+/***/ }),
+
+/***/ "./package.json":
+/*!**********************!*\
+  !*** ./package.json ***!
+  \**********************/
+/*! exports provided: main, license, devDependencies, peerDependencies, framer, author, dependencies, default */
+/***/ (function(module) {
+
+module.exports = {"main":"dist/index.js","license":"MIT","devDependencies":{"@types/react":"^16.8"},"peerDependencies":{"framer":"^1.0","react":"^16.8"},"framer":{"id":"77223c3e-fc31-46d2-99fa-28abc729130a"},"author":"Steve Ruiz","dependencies":{"netlify-auth-providers":"^1.0.0-alpha5"}};
+
+/***/ }),
+
+/***/ "framer":
+/*!******************************************************************************************!*\
+  !*** external {"root":"Framer","commonjs2":"framer","commonjs":"framer","amd":"framer"} ***!
+  \******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_framer__;
+
+/***/ })
+
+/******/ });
+});
+        </script>
+        
+        <script>
+        const data = {
+  "presentationNode": {
+    "componentClass": "Frame",
+    "props": {
+      "key": "P17f8cG2t",
+      "id": "id_P17f8cG2t",
+      "willChangeTransform": false,
+      "_constraints": {
+        "enabled": true
+      },
+      "width": 357,
+      "height": 671,
+      "left": 0,
+      "top": 0,
+      "_border": {},
+      "visible": true,
+      "style": {
+        "rotate": 0,
+        "overflow": "hidden",
+        "backgroundColor": "white"
+      },
+      "background": {
+        "r": 255,
+        "g": 255,
+        "b": 255,
+        "a": 1,
+        "h": 0,
+        "s": 0,
+        "l": 1,
+        "initialValue": "white",
+        "roundA": 1,
+        "format": "rgb"
+      }
+    },
+    "children": [
+      {
+        "componentClass": "Frame",
+        "props": {
+          "key": "jy_nnzheZ",
+          "id": "id_jy_nnzheZ",
+          "willChangeTransform": false,
+          "_constraints": {
+            "enabled": true
+          },
+          "width": 159,
+          "height": 50,
+          "left": "50%",
+          "bottom": 55,
+          "center": "x",
+          "_border": {},
+          "visible": true,
+          "style": {
+            "rotate": 0,
+            "overflow": "visible",
+            "backgroundColor": "rgba(0, 153, 255, 0.5)"
+          },
+          "background": {
+            "r": 0,
+            "g": 153,
+            "b": 255,
+            "a": 0.5,
+            "h": 204,
+            "s": 1,
+            "l": 0.5,
+            "initialValue": "rgba(0, 153, 255, 0.5)",
+            "roundA": 0.5,
+            "format": "rgb"
+          }
+        },
+        "children": [],
+        "codeOverrideIdentifier": "./App.tsx_Button"
+      },
+      {
+        "componentClass": "Text",
+        "props": {
+          "key": "JyIomOli2",
+          "id": "id_JyIomOli2",
+          "willChangeTransform": false,
+          "_constraints": {
+            "enabled": true,
+            "autoSize": true
+          },
+          "width": 107,
+          "height": 19,
+          "left": "50%",
+          "bottom": 126,
+          "center": "x",
+          "rawHTML": "<div data-offset-key=\"emknk-0-0\" class=\"public-DraftStyleDefault-block public-DraftStyleDefault-ltr\"><span data-offset-key=\"emknk-0-0\" style=\"tab-size:4;font-family:&quot;.SFNSText&quot;, &quot;SFProText-Regular&quot;, &quot;SFUIText-Regular&quot;, &quot;.SFUIText&quot;, sans-serif;-webkit-text-fill-color:rgb(0, 0, 0);font-size:16px;letter-spacing:0px;line-height:1.2\"><span data-text=\"true\">Get API Token</span></span></div>",
+          "opacity": 1,
+          "rotation": 0,
+          "visible": true,
+          "autoSize": true,
+          "calculatedSize": {
+            "width": 107,
+            "height": 19
+          },
+          "isEditable": false
+        }
+      }
+    ]
+  },
+  "metadata": {
+    "name": "Frame",
+    "id": "P17f8cG2t",
+    "width": 357,
+    "height": 671,
+    "selectionLock": false,
+    "settings": {
+      "zoom": -1,
+      "rotate": false,
+      "bezel": false,
+      "responsive": false,
+      "touch": false,
+      "__class": "PreviewSettings"
+    }
+  },
+  "navigation": {},
+  "customProperties": {}
+};
+        const $build_index_js = document.querySelector("#build_index_js")
+        const script = $build_index_js ? $build_index_js.textContent.trim() : ""
+        
+        // need react to have rendered, before we can do setPreviewData
+        setTimeout(() => {
+            if (script.length > 0) {
+                setPreviewData(script, data)
+            } else {
+                fetch("build/index.js").then((response) => {
+                    return response.text().then((script) => {
+                        setPreviewData(script, data)
+                    })
+                })
+            }
+        }, 0)
+        </script>
+    </body>
+</html>
