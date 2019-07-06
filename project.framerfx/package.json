@@ -2,6 +2,7 @@
 	"main": "dist/index.js",
 	"license": "MIT",
 	"devDependencies": {
+		"@framer/framer.device-skin-apple-iphone-xs-spacegrey": "^1.0.0",
 		"@types/react": "^16.8"
 	},
 	"peerDependencies": {
@@ -13,6 +14,9 @@
 	},
 	"author": "Steve Ruiz",
 	"dependencies": {
+		"@framer/steveruizok.education": "^1.167.0",
+		"gist-client": "^1.1.0",
+		"nanogist": "^1.0.0",
 		"netlify-auth-providers": "^1.0.0-alpha5"
 	}
 }
